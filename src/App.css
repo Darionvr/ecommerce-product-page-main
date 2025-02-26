@@ -1,0 +1,565 @@
+:root {
+    --Orange: hsl(26, 100%, 55%);
+    --Paleorange: hsl(25, 100%, 94%);
+    --Verydarkblue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsla(0, 0%, 0%, 0.353);
+    font-family: Kumbh sans;
+
+}
+
+
+/************************** NAVBAR **************************/
+
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 10% 0 10%;
+    padding: 1rem 0 0 0;
+    border-bottom: solid 1px var(--Grayishblue);
+    color: var(--Darkgrayishblue);
+    position: relative;
+
+}
+
+.menu-icon {
+    display: none;
+}
+
+.desktop-menu {
+    display: flex;
+    list-style-type: none;
+    gap: 2.5rem;
+    margin: 0;
+}
+
+.desktop-menu li {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: solid 3px transparent;
+    transition: border-bottom 0.3s ease;
+
+}
+
+.desktop-menu li:hover {
+    cursor: pointer;
+    border-bottom: solid 3px var(--Orange);
+}
+
+.logo {
+    height: min-content;
+
+}
+
+.navcart {
+    justify-self: right;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    position: relative;
+
+}
+
+.cart-icon {
+    height: min-content;
+
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+}
+
+.cart-total {
+    font-size: .5rem;
+    padding: .1rem .3rem .1rem .3rem;
+    background-color: var(--Orange);
+    border-radius: 8px;
+    color: var(--White);
+    font-weight: 700;
+    position: absolute;
+    top: -5px;
+    left: 15px;
+}
+
+.avatar {
+    height: 3rem;
+    justify-self: right;
+    border-radius: 100%;
+    border: solid 2px transparent;
+    transition: border 0.3s ease;
+
+}
+
+.avatar:hover {
+    border: solid 2px var(--Orange);
+    cursor: pointer;
+}
+
+/************************** PRODUCT VIEW **************************/
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    gap: 5rem;
+}
+
+.fullSizeImg {
+    width: 25rem;
+    position: relative;
+
+}
+
+.fullSizeImg:hover {
+    cursor: pointer;
+}
+
+.fullSizeImg img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.thumbnailImg {
+    position: relative;
+    width: 5rem;
+}
+
+.thumbnailImg img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.thumbnailImg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+
+}
+
+.thumbnailImg:hover::after {
+    opacity: 0.5;
+}
+
+.thumbnailImg:hover {
+    cursor: pointer;
+}
+
+.activeimg {
+    border: solid 3px var(--Orange);
+    box-sizing: border-box;
+}
+
+.previous {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: -3%;
+    width: 1rem;
+    height: 1rem;
+    padding: .5rem;
+    background-color: var(--White);
+    border-radius: 100%;
+    fill: var(--Verydarkblue);
+}
+
+.next {
+    display: none;
+    position: absolute;
+    top: 45%;
+    right: -3%;
+    width: 1rem;
+    height: 1rem;
+    padding: .5rem;
+    background-color: var(--White);
+    border-radius: 100%;
+    fill: var(--Verydarkblue);
+
+}
+
+/************************** PRODUCT DESCRIPTION **************************/
+.productinfo {
+    display: flex;
+    flex-direction: column;
+    width: 48ch;
+    gap: 1rem;
+}
+
+.brand {
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--Darkgrayishblue);
+    letter-spacing: 1.5px;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.description {
+    color: var(--Darkgrayishblue);
+}
+
+.prices {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+}
+
+.finalprice {
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.originalprice {
+    font-weight: 700;
+    font-size: .9rem;
+    color: var(--Darkgrayishblue);
+    text-decoration: line-through;
+}
+
+.discount {
+    color: var(--White);
+    font-size: .8rem;
+    background-color: var(--Verydarkblue);
+    border-radius: 8px;
+    padding: .3rem .7rem .3rem .7rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.addtocart {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    background-color: var(--Orange);
+    color: var(--Verydarkblue);
+    font-family: Kumbh Sans;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: .8rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.addtocart:hover {
+    background-color: hsla(26, 100%, 55%, 0.54);
+    cursor: pointer;
+}
+
+.plusminus {
+    background-color: var(--Lightgrayishblue);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 0 .8rem 0 .8rem;
+    height: 2.8rem;
+
+
+}
+
+.plusminus img {
+    height: min-content;
+}
+
+.plusminus img:hover {
+    cursor: pointer;
+}
+
+.addtocart-icon {
+    fill: var(--Verydarkblue);
+    height: 100%;
+}
+
+/************************** CART **************************/
+.cart {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.51);
+    border-radius: 10px;
+    width: max-content;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    z-index: 1000;
+    background-color: var(--White);
+    width: 20rem;
+    height: 13.9rem;
+
+}
+
+.cart-title {
+    padding: 1.5rem;
+    border-bottom: solid 1px var(--Grayishblue);
+    font-weight: 700;
+    color: var(--Verydarkblue);
+    margin: 0;
+
+}
+
+.cart-detail {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: .9rem;
+    color: var(--Darkgrayishblue);
+    padding: 0 1rem 0 1rem;
+    margin: 0;
+}
+
+.cart-image {
+    width: 3rem;
+    border-radius: 5px;
+}
+
+.total-cost {
+    color: var(--Verydarkblue);
+    font-weight: 700;
+}
+
+.allprices {
+    display: flex;
+    gap: .5rem;
+}
+
+.emptycart {
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.checkout {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: var(--Orange);
+    color: var(--Verydarkblue);
+    font-family: Kumbh Sans;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: .8rem;
+    margin: 1rem;
+    width: 90%;
+    justify-content: center;
+}
+
+.checkout:hover {
+    cursor: pointer;
+    background-color: hsla(26, 100%, 55%, 0.54);
+}
+
+.trashcan:hover {
+    cursor: pointer;
+}
+
+/************************** MODAL **************************/
+
+.modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.74);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close {
+    fill: var(--White);
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+
+.close:hover {
+    cursor: pointer;
+    fill: var(--Orange);
+}
+
+
+/************************** MEDIA QUERIES **************************/
+
+@media (max-width: 768px) {
+    nav {
+        border-bottom: none;
+        height: 4rem;
+        padding: 0;
+        margin: 0 5% 0 5%;
+    }
+
+    .desktop-menu {
+        display: none;
+
+    }
+
+    .navcart {
+        margin-right: 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .avatar {
+        height: 1.5rem;
+    }
+
+    main {
+        flex-direction: column;
+        margin: 0;
+        box-sizing: border-box;
+        gap: 0;
+
+    }
+
+    .fullSizeImg {
+        width: 100%;
+
+    }
+
+    .fullSizeImg img {
+        border-radius: 0;
+    }
+
+    .thumbnailImg {
+        display: none;
+
+    }
+
+    .productinfo {
+        width: fit-content;
+        padding: 1.5rem;
+    }
+
+    .brand {
+        font-size: .7rem;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .prices {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cart {
+        top: 70px;
+        right: 0;
+    }
+
+    .previous {
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: 3%;
+        width: 1rem;
+        height: 1rem;
+        padding: .5rem;
+        background-color: var(--White);
+        border-radius: 100%;
+        fill: var(--Verydarkblue);
+    }
+
+    .next {
+        display: block;
+        position: absolute;
+        top: 40%;
+        right: 3%;
+        width: 1rem;
+        height: 1rem;
+        padding: .5rem;
+        background-color: var(--White);
+        border-radius: 100%;
+        fill: var(--Verydarkblue);
+
+    }
+
+    .next:hover,
+    .previous:hover {
+        cursor: pointer;
+
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .mobile-menu {
+        background-color: var(--White);
+        align-self: flex-start;
+        justify-self: left;
+        width: 20rem;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 2rem;
+        animation: slideIn 0.3s ease-in-out forwards;
+
+    }
+
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 2rem;
+        color: var(--Verydarkblue);
+        font-weight: 700;
+        margin: 0;
+        padding: 3rem 0 0 0;
+
+    }
+
+
+}
