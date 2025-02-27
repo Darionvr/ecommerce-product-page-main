@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { CartContex } from '../Context/CartContex'
 import Cart from './Cart'
+
 
 const NavBar = () => {
 
@@ -24,13 +25,30 @@ const NavBar = () => {
         }
     }
 
-    const handleMenu = () =>{
-        if(!mobileMenu){
+    const handleMenu = () => {
+        if (!mobileMenu) {
             setMobileMenu(true)
-        }else{
+        } else {
             setMobileMenu(false)
         }
     }
+
+   
+
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('.cart') && !event.target.closest('.cart-icon')) {
+            setOpenCart(false);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <nav>
             <img onClick={handleMenu} className='menu-icon' src="images/icon-menu.svg" alt="" />
@@ -43,7 +61,7 @@ const NavBar = () => {
                 <li>About</li>
                 <li>Contact</li>
             </ul>
-            <div className='navcart'>
+            <div className='navcart'   >
                 <img onClick={() => handleCart()} className='cart-icon' src="images/icon-cart.svg" alt="Cart Icon" />
                 {total > 0 && <span className='cart-total' >{total}</span>}
             </div>
