@@ -20,7 +20,6 @@ nav {
     align-items: center;
     gap: 1rem;
     margin: 0 10% 0 10%;
-    padding: 1rem 0 0 0;
     border-bottom: solid 1px var(--Grayishblue);
     color: var(--Darkgrayishblue);
     position: relative;
@@ -107,7 +106,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin: 5rem 0;
     gap: 5rem;
 }
 
@@ -220,6 +219,7 @@ main {
 
 .description {
     color: var(--Darkgrayishblue);
+    text-align: justify;
 }
 
 .prices {
