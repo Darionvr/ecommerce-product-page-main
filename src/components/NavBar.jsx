@@ -6,9 +6,8 @@ import Cart from './Cart'
 const NavBar = () => {
 
     const { total } = useContext(CartContex)
-
     const [openCart, setOpenCart] = useState(false)
-    const [mobileMenu, setMobileMenu] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         if (total > 0) {
@@ -24,16 +23,6 @@ const NavBar = () => {
             setOpenCart(false)
         }
     }
-
-    const handleMenu = () => {
-        if (!mobileMenu) {
-            setMobileMenu(true)
-        } else {
-            setMobileMenu(false)
-        }
-    }
-
-   
 
     const handleClickOutside = (event) => {
         if (!event.target.closest('.cart') && !event.target.closest('.cart-icon')) {
@@ -51,41 +40,28 @@ const NavBar = () => {
 
     return (
         <nav>
-            <img onClick={handleMenu} className='menu-icon' src="images/icon-menu.svg" alt="" />
+            <img onClick={() => setIsOpen(true)} className='menu-icon' src="images/icon-menu.svg" alt="Mobile Menu Icon" />
             <img className='logo' src="images/logo.svg" alt="Brand Logo" />
 
-            <ul className='desktop-menu'>
+            <ul className={`nav-menu ${isOpen ? 'open' : 'closed'}`}>
+                <img  onClick={() => setIsOpen(false)} src="images/icon-close.svg" alt="Close button" />
                 <li>Collections</li>
                 <li>Men</li>
                 <li>Women</li>
                 <li>About</li>
                 <li>Contact</li>
             </ul>
+
             <div className='navcart'   >
                 <img onClick={() => handleCart()} className='cart-icon' src="images/icon-cart.svg" alt="Cart Icon" />
                 {total > 0 && <span className='cart-total' >{total}</span>}
             </div>
+                <img className='avatar' src="images/image-avatar.png" alt="Profile picture" />
 
-
-            <img className='avatar' src="images/image-avatar.png" alt="Profile picture" />
             {openCart && <Cart />}
-
-            {mobileMenu &&
-                <div className='modal'>
-                    <div className="mobile-menu">
-                        <img onClick={handleMenu} src="images/icon-close.svg" alt="Close button" />
-                        <ul>
-                            <li>Collections</li>
-                            <li>Men</li>
-                            <li>Women</li>
-                            <li>About</li>
-                            <li>Contact</li>
-                        </ul>
-                    </div>
+            <div className="overlay" style={{display: isOpen ? 'block' : 'none'}}></div>
 
 
-                </div>
-            }
 
 
         </nav>
